@@ -6,6 +6,7 @@ public class Main
     {
         do
         {
+            Player.resetCount();
             int participants = InputHandler.getValidNumberOfParticipants("How many participants in this tournament?");
             Board board = new Board(participants);
             Engine.playTournament(board);

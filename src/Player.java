@@ -2,13 +2,11 @@ import java.util.Random;
 
 public class Player
 {
-    private static final String[] FIRST_NAMES = {"Pippo", "Pluto"};
-    private static final String[] LAST_NAMES = {"Rossi", "Bianchi"};
+    private static final String[] USERNAMES = {"Rick Sanchez", "Goku", "Mickey Mouse", "Minnie Mouse", "Donkey Kong", "Corvo Attano", "Batman", "Yoshi", "Shrek", "Waluigi", "Spongebob", "Iron Man", "Hulk", "Voldemort", "Gandalf", "Princess Peach", "Thanos", "Optimus Prime",};
     private static final int MAX_SKILL_LEVEL = 100;
     private static int playerCount = 0;
     private final int id;
-    private final String firstName;
-    private final String lastName;
+    private final String username;
     private final int skillLevel;
 
     private boolean isPaired;
@@ -16,8 +14,7 @@ public class Player
     public Player()
     {
         this.id = ++playerCount;
-        this.firstName = FIRST_NAMES[new Random().nextInt(FIRST_NAMES.length)];
-        this.lastName = LAST_NAMES[new Random().nextInt(LAST_NAMES.length)];
+        this.username = USERNAMES[new Random().nextInt(USERNAMES.length)];
         this.skillLevel = new Random().nextInt(MAX_SKILL_LEVEL) + 1;
         this.isPaired = false;
     }
@@ -41,6 +38,11 @@ public class Player
     @Override
     public String toString()
     {
-        return this.firstName + " " + this.lastName + " skill level: " + this.skillLevel + " " + "id: " + this.id;
+        return this.username + "(" + this.skillLevel + ")" + " id: " + this.id;
+    }
+
+    public static void resetCount()
+    {
+        playerCount = 0;
     }
 }
